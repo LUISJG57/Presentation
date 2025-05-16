@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -103,11 +104,13 @@ export default function Portfolio() {
                 <Card className="overflow-hidden bg-zinc-900">
                   <CardContent className="p-0">
                     <div className="group relative">
-                      <img
-                        src={work.image || "/placeholder.svg"}
-                        alt={work.title}
-                        className="w-full transition-transform duration-500 group-hover:scale-105"
-                      />
+                    <Image
+                      src={work.image || "/placeholder.svg"}
+                      alt={work.title}
+                      width={500} // Adjust width as needed
+                      height={500} // Adjust height as needed
+                      className="w-full transition-transform duration-500 group-hover:scale-105"
+                    />
                       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <h3 className="text-xl font-semibold text-white">{work.title}</h3>
                         <p className="mt-2 text-sm text-gray-300">{work.year}</p>

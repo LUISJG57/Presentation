@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useRef } from "react"
 import { useInView } from "framer-motion"
+import Image from "next/image"
 
 export default function Gallery() {
   const ref = useRef(null)
@@ -52,11 +53,13 @@ export default function Gallery() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               <div className="aspect-[2/3] overflow-hidden">
-                <img
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+              <Image
+                src={image.src || "/placeholder.svg"}
+                alt={image.alt}
+                width={500} // Replace with appropriate width
+                height={750} // Replace with appropriate height
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
               </div>
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <h3 className="text-xl font-semibold text-white">{image.title}</h3>
